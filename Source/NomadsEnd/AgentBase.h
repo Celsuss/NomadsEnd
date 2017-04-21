@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Character.h"
 #include "AgentBase.generated.h"
 
 class APathNode;
@@ -26,15 +26,6 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-	/*UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "AI Actor")
-	UCapsuleComponent* CapsuleComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "AI Actor")
-	USkeletalMeshComponent* Mesh;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "AI Actor")
-	UCharacterMovementComponent* CharacterMovement;*/
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI Actor")
 	APathNode* DesiredNode;

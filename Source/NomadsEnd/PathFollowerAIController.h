@@ -3,7 +3,7 @@
 #pragma once
 
 #include "AIController.h"
-#include "NomadeAIController.generated.h"
+#include "PathFollowerAIController.generated.h"
 
 class AAgentBase;
 
@@ -11,13 +11,14 @@ class AAgentBase;
  * 
  */
 UCLASS()
-class NOMADSEND_API ANomadeAIController : public AAIController
+class NOMADSEND_API APathFollowerAIController : public AAIController
 {
 	GENERATED_BODY()
-public:
+	
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;
 
-	AAgentBase* m_Agent;;
+	AAgentBase* m_Agent;
+	EPathFollowingStatus::Type m_DesiredMoveStatus;
 };

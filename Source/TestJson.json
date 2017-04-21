@@ -1,0 +1,18 @@
+{
+	"root": [
+		{
+			"name": "ByggarData",
+			"costToBuild": [
+				{
+					"count": 10,
+					"resourceType": "RE_Stone"
+				},
+				{
+					"count": 100,
+					"resourceType": "RE_Fish"
+				}
+			],
+			"timeToBuild": 1
+		}
+	]
+}

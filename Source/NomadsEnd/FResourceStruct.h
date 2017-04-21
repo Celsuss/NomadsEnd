@@ -5,10 +5,10 @@
 #include "EResourceEnum.h"
 #include "FResourceStruct.generated.h"
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct NOMADSEND_API FResourceStruct
 {
-	GENERATED_BODY()
+	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(VisibleAnywhere)
 	int32 Count;
@@ -24,8 +24,4 @@ struct NOMADSEND_API FResourceStruct
 		ResourceType = resourceType;
 		Count = count;
 	}
-
-	//bool operator== (const FResourceStruct& Other);
-	//
-	//friend uint8 GetTypeHash(const FResourceStruct& Other);
 };

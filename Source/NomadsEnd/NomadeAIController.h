@@ -1,15 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
-
+//
 #include "AIController.h"
 #include "NomadeAIController.generated.h"
 
 class ABasicAI;
 
-/**
- * 
- */
+///**
+// * 
+// */
 UCLASS()
 class NOMADSEND_API ANomadeAIController : public AAIController
 {
@@ -19,5 +19,5 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 
-	ABasicAI* m_AIActor;;
+	ABasicAI* m_AIActor;
 };

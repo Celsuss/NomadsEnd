@@ -12,8 +12,8 @@ UCLASS()
 class NOMADSEND_API ANomadsEndGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
-	
+
+	ANomadsEndGameModeBase();
 	
 	
 };

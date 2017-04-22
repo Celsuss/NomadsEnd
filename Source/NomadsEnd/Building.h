@@ -20,6 +20,7 @@ class NOMADSEND_API ABuilding : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ABuilding();
+	//~ABuilding();
 	/*	ABuilding* buildingActor = GetWorld()->SpawnActor<ABuilding>(GetClass(), GetActorLocation() + FVector(0.f, 0.f, 300.f), FRotator::ZeroRotator);*/
 
 

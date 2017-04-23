@@ -21,4 +21,5 @@ class NOMADSEND_API APathFollowerAIController : public AAIController
 
 	AAgentBase* m_Agent;
 	EPathFollowingStatus::Type m_DesiredMoveStatus;
+
 };

@@ -26,11 +26,11 @@ class NOMADSEND_API ABuilding : public AActor
 	TMap<EResourceEnum, FResourceStruct> InventoryMap;
 	
 public:	
-	/*	ABuilding* buildingActor = GetWorld()->SpawnActor<ABuilding>(GetClass(), GetActorLocation() + FVector(0.f, 0.f, 300.f), FRotator::ZeroRotator);*/
-
+	// Sets default values for this actor's properties
 	ABuilding(const FObjectInitializer& ObjectInitializer);
 
 	virtual void Init(FBuildingData* data);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

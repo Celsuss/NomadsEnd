@@ -13,6 +13,8 @@ AAgentBase::AAgentBase()
 	bUseControllerRotationPitch = true;
 	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = true;
+
+	BotType = EBotBehaviorType::Passive;
 }
 
 // Called when the game starts or when spawned

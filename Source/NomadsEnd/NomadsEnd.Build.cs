@@ -6,7 +6,7 @@ public class NomadsEnd : ModuleRules
 {
 	public NomadsEnd(TargetInfo Target)
 	{
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "AIModule" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "AIModule", "GameplayTasks", "Json", "JsonUtilities" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
@@ -15,8 +15,6 @@ public class NomadsEnd : ModuleRules
 
         // Uncomment if you are using online features
         // PrivateDependencyModuleNames.Add("OnlineSubsystem");
-
-        PrivateDependencyModuleNames.AddRange(new string[] { "Json", "JsonUtilities" });
 
         // To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
     }

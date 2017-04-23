@@ -16,6 +16,7 @@ struct NOMADSEND_API FResourceStruct
 	UPROPERTY()
 	EResourceEnum ResourceType;
 
+public:
 	FResourceStruct();
 	~FResourceStruct();
 

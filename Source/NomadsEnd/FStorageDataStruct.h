@@ -11,7 +11,7 @@ struct NOMADSEND_API FStorageDataStruct
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(VisibleAnywhere, Category = "Data")
-	TArray<FBuildingData> Root;
+	TArray<FBuildingData> Buildings;
 
 public:
 	FStorageDataStruct();

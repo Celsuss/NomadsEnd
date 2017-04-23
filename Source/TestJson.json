@@ -1,6 +1,7 @@
 {
-	"root": [
+	"buildings": [
 		{
+			"id": "1",
 			"name": "ByggarData",
 			"costToBuild": [
 				{
@@ -13,6 +14,21 @@
 				}
 			],
 			"timeToBuild": 1
+		},
+		{
+			"id": "2",
+			"name": "ByggarData2",
+			"costToBuild": [
+				{
+					"count": 10,
+					"resourceType": "RE_Stone"
+				},
+				{
+					"count": 100,
+					"resourceType": "RE_Wood"
+				}
+			],
+			"timeToBuild": 15
 		}
 	]
 }

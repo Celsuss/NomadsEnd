@@ -7,9 +7,12 @@
 #include "FBuildingData.generated.h"
 
 USTRUCT(BlueprintType)
-struct NOMADSEND_API FBuildingData : public FDtoBase
+struct NOMADSEND_API FBuildingData
 {
 	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(VisibleAnywhere)
+	int Id;
 
 	UPROPERTY(VisibleAnywhere)
 	FName Name;
@@ -20,8 +23,11 @@ struct NOMADSEND_API FBuildingData : public FDtoBase
 	UPROPERTY(EditAnywhere)
 	float TimeToBuild;
 
-
-
 	FBuildingData();
 	~FBuildingData();
+
+	bool FBuildingData::operator==(const FBuildingData &other) const
+	{
+		return Id == other.Id;
+	};
 };

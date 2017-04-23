@@ -8,12 +8,15 @@
 /**
  * 
  */
+//DECLARE_LOG_CATEGORY_EXTERN(GeneralLog, Log, All);
+
 UCLASS()
 class NOMADSEND_API ANomadsEndGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 
 	ANomadsEndGameModeBase();
-	
+
+	virtual void StartPlay();
 	
 };

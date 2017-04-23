@@ -6,10 +6,10 @@
 
 FBuildingData::FBuildingData()
 {
-	Name = FName(TEXT("ByggarData"));
-	TimeToBuild = 1.f;
-	CostToBuild.Add(FResourceStruct((EResourceEnum)1, 10));
-	CostToBuild.Add(FResourceStruct((EResourceEnum)2, 100));
+	//Name = FName(TEXT("ByggarData"));
+	//TimeToBuild = 1.f;
+	//CostToBuild.Add(FResourceStruct((EResourceEnum)1, 10));
+	//CostToBuild.Add(FResourceStruct((EResourceEnum)2, 100));
 }
 
 FBuildingData::~FBuildingData()

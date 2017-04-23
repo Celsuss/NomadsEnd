@@ -8,7 +8,6 @@
 /**
  * 
  */
-//DECLARE_LOG_CATEGORY_EXTERN(GeneralLog, Log, All);
 
 UCLASS()
 class NOMADSEND_API ANomadsEndGameModeBase : public AGameModeBase
@@ -17,6 +16,6 @@ class NOMADSEND_API ANomadsEndGameModeBase : public AGameModeBase
 
 	ANomadsEndGameModeBase();
 
-	virtual void StartPlay();
+	virtual void StartPlay() override;
 	
 };

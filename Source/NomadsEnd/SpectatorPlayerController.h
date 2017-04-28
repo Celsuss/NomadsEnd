@@ -3,11 +3,12 @@
 #pragma once
 
 #include "GameFramework/PlayerController.h"
+#include "NomadsEndTypes.h"
+#include "Building.h"
 #include "SpectatorPlayerController.generated.h"
 
-/**
- * 
- */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FConstructBuildingDelegate, ABuilding*, building);
+
 UCLASS()
 class NOMADSEND_API ASpectatorPlayerController : public APlayerController
 {
@@ -17,6 +18,18 @@ class NOMADSEND_API ASpectatorPlayerController : public APlayerController
 
 	void OnLeftMousePressed();
 	void OnRightMousePressed();
+	AActor* GetTarget(const FVector2D& screenPoint) const;
 
-	AActor* GetTarget(const FVector2D& ScreenPoint) const;
+	void SetBuildingToConstruct(ABuilding* building);
+	
+private:
+	void ConstructBuilding(const FVector& pos);
+
+	EControllerActionType m_CurrentAction;
+	ABuilding* m_BuildingToConstruct;
+
+public:
+
+	UPROPERTY()
+	FConstructBuildingDelegate OnConstructBuilding;
 };

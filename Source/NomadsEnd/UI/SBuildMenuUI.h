@@ -3,6 +3,7 @@
 #pragma once
 
 
+#include "Building.h"
 #include "Widgets/SCompoundWidget.h"
 
 /**
@@ -22,4 +23,6 @@ public:
 	FReply ConstructBuilding();
 
 	TWeakObjectPtr<class AStandardHUD> StandardHUD;
+
+
 };

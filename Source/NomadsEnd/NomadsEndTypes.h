@@ -10,3 +10,11 @@ enum class EBotBehaviorType : uint8
 	/* Patrols a region until a player is spotted */
 	Patrolling,
 };
+
+UENUM()
+enum class EControllerActionType : uint8
+{
+	Selecting,
+
+	Building,
+};

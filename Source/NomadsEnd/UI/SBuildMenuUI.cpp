@@ -3,6 +3,8 @@
 #include "NomadsEnd.h"
 #include "SBuildMenuUI.h"
 #include "SlateOptMacros.h"
+#include "UI/StandardHUD.h"
+#include "SpectatorPlayerController.h"
 
 BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
 void SBuildMenuUI::Construct(const FArguments& InArgs)
@@ -44,6 +46,29 @@ FReply SBuildMenuUI::ConstructBuilding()
 	if (GEngine)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow, TEXT("ConstructBuilding"));
+
+		if (StandardHUD->GetWorld())
+		{
+			ASpectatorPlayerController* controller = Cast<ASpectatorPlayerController>(StandardHUD->GetWorld()->GetFirstPlayerController());
+			if (controller)
+			{
+				controller->SetBuildingToConstruct(nullptr);
+			}
+			else
+				GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow, TEXT("No controller"));
+		}
+		else
+			GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow, TEXT("No world"));
+
+		/*if (!GEngine->GetWorld()->GetFirstPlayerController()) {
+			GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow, TEXT("No controller"));
+		}*/
+
+		/*ASpectatorPlayerController* controller = Cast<ASpectatorPlayerController>(GEngine->GetWorld()->GetFirstPlayerController());
+		if(controller)
+			controller->SetBuildingToConstruct(nullptr);
+		else
+			UE_LOG(LogTemp, Warning, TEXT("Controller is nullptr"));*/
 	}
 
 	// actually the BlueprintImplementable function of the HUD is not called; uncomment if you want to handle the OnClick via Blueprint

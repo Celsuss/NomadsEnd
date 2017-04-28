@@ -33,21 +33,6 @@ class NOMADSEND_API APathFollowerAIController : public AAIController
 	UPROPERTY(EditDefaultsOnly, Category = "AI")
 	FName DesiredNodeKeyName;
 
-	UPROPERTY(EditDefaultsOnly, Category = "AI")
-	FName TargetEnemyKeyName;
-
-	UPROPERTY(EditDefaultsOnly, Category = "AI")
-	FName TargetLocationKeyName;
-
-	UPROPERTY(EditDefaultsOnly, Category = "AI")
-	FName PatrolLocationKeyName;
-
-	UPROPERTY(EditDefaultsOnly, Category = "AI")
-	FName CurrentWaypointKeyName;
-
-	UPROPERTY(EditDefaultsOnly, Category = "AI")
-	FName BotTypeKeyName;
-
 	UPROPERTY(EditAnywhere, Category = "AI")
 	class APathNode* DesiredNode;
 

@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "NomadsEnd.h"
+#include "NomadsEndActors/Building.h"
 #include "SBuildMenuUI.h"
 #include "SlateOptMacros.h"
 #include "UI/StandardHUD.h"
@@ -50,25 +51,15 @@ FReply SBuildMenuUI::ConstructBuilding()
 		if (StandardHUD->GetWorld())
 		{
 			ASpectatorPlayerController* controller = Cast<ASpectatorPlayerController>(StandardHUD->GetWorld()->GetFirstPlayerController());
-			if (controller)
-			{
-				controller->SetBuildingToConstruct(nullptr);
+			if (controller) {
+				ABuilding* build = new ABuilding();
+				controller->SetBuildingToConstruct(build);
 			}
 			else
 				GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow, TEXT("No controller"));
 		}
 		else
 			GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow, TEXT("No world"));
-
-		/*if (!GEngine->GetWorld()->GetFirstPlayerController()) {
-			GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow, TEXT("No controller"));
-		}*/
-
-		/*ASpectatorPlayerController* controller = Cast<ASpectatorPlayerController>(GEngine->GetWorld()->GetFirstPlayerController());
-		if(controller)
-			controller->SetBuildingToConstruct(nullptr);
-		else
-			UE_LOG(LogTemp, Warning, TEXT("Controller is nullptr"));*/
 	}
 
 	// actually the BlueprintImplementable function of the HUD is not called; uncomment if you want to handle the OnClick via Blueprint

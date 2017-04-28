@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "NomadsEnd.h"
-#include "FDtoBase.h"
+#include "FDataStructBase.h"
 
-FDtoBase::~FDtoBase()
+FDataStructBase::~FDataStructBase()
 {
 }

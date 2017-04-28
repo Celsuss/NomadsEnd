@@ -2,14 +2,20 @@
 
 #pragma once
 
-//#include "FactoryBase.generated.h"
+#include <stdint.h>
 
-class ABuilding;
-//
-//UCLASS()
-class NOMADSEND_API UFactoryBase
+#include "NomadsEndActors/NomadsEndBaseActor.h"
+#include "DataObjects/FDataStructBase.h"
+
+class NOMADSEND_API FactoryBase
 {
+protected:
+	UWorld* const _world;
+	FDataStructBase* const _data;
+
 public:
-	virtual ABuilding* CreateProductionBuilding(int id) = 0;
-	virtual ABuilding* CreateGenerationBuilding(int id) = 0;
+	FactoryBase(UWorld* world, FDataStructBase* data) : _world(world), _data(data) {}
+	virtual ~FactoryBase() = default;
+
+	virtual FDataStructBase* GetActorInitializationData(uint64_t id) = 0;
 };

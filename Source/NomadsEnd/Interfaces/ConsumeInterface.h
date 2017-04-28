@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "EResourceEnum.h"
+#include "DataObjects/EResourceEnum.h"
 #include "ConsumeInterface.generated.h"
 
 UINTERFACE(BlueprintType)

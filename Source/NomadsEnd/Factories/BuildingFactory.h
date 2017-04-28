@@ -1,18 +1,21 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
+
 #include "FactoryBase.h"
-#include "FStorageDataStruct.h"
 
-class NOMADSEND_API UBuildingFactory : public UFactoryBase
+class ABuilding;
+class AProductionBuilding;
+struct FStorageDataStruct;
+
+class NOMADSEND_API BuildingFactory : public FactoryBase
 {
-	FStorageDataStruct* _data;
-	UWorld* const _world;
-
 public:
-	UBuildingFactory(UWorld* world, FStorageDataStruct* const data);
-	virtual ~UBuildingFactory();
+	BuildingFactory(UWorld* world, FStorageDataStruct* data);
 
-	virtual ABuilding* CreateProductionBuilding(int id);
-	virtual ABuilding* CreateGenerationBuilding(int id);
+	~BuildingFactory();
+
+	FDataStructBase* GetActorInitializationData(uint64_t id) override;
+
+	AProductionBuilding* CreateProductionBuilding(uint64_t id, FTransform location);
 };

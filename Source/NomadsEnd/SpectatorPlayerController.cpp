@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "NomadsEnd.h"
-#include "Building.h"
+#include "NomadsEndActors/Building.h"
 #include "SpectatorPlayerController.h"
 
 ASpectatorPlayerController::ASpectatorPlayerController(const FObjectInitializer& ObjectInitializer)

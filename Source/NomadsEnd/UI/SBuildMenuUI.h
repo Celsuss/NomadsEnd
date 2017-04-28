@@ -3,7 +3,7 @@
 #pragma once
 
 
-#include "Building.h"
+#include "NomadsEndActors/Building.h"
 #include "Widgets/SCompoundWidget.h"
 
 /**

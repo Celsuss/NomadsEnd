@@ -11,8 +11,8 @@
 UCLASS()
 class NOMADSEND_API AProductionBuilding : public ABuilding, public IProduceInterface, public IConsumeInterface
 {
-
 	GENERATED_BODY()
+
 
 	
 

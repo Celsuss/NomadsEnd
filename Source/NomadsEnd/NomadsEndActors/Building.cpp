@@ -29,5 +29,5 @@ void ABuilding::Tick(float DeltaTime)
 
 void ABuilding::Init(FDataStructBase* data)
 {
-
+	_data = (FBuildingData*)data;
 }

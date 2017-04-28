@@ -16,6 +16,8 @@ bool AProductionBuilding::ConsumeResource_Implementation(EResourceEnum resourceE
 void AProductionBuilding::Init(FDataStructBase* data)
 {
 	auto buildingData = (FBuildingData*)data;
+
+
 }
 
 //AProductionBuilding::AProductionBuilding(const FObjectInitializer& ObjectInitializer)

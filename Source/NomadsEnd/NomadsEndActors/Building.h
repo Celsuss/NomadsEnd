@@ -22,6 +22,7 @@ class NOMADSEND_API ABuilding : public ANomadsEndBaseActor
 	// End Actor Interface
 
 	bool _bIsBeingBuilt;
+	FBuildingData* _data;
 
 	TMap<EResourceEnum, FResourceStruct> InventoryMap;
 	

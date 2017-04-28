@@ -8,6 +8,16 @@
 
 ANomadsEndBaseActor::ANomadsEndBaseActor()
 {
+	SceneRootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root Component"));
+	RootComponent = SceneRootComponent;
+
+	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh Component"));
+	TriggerBox = CreateDefaultSubobject<UBoxComponent>(TEXT("Trigger Box"));
+
+	MeshComponent->SetupAttachment(RootComponent);
+	TriggerBox->SetupAttachment(RootComponent);
+
+	
 }
 
 ANomadsEndBaseActor::~ANomadsEndBaseActor()
@@ -15,5 +25,6 @@ ANomadsEndBaseActor::~ANomadsEndBaseActor()
 }
 
 void ANomadsEndBaseActor::Init(FDataStructBase* data) {
+
 
 }

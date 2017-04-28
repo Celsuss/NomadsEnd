@@ -4,8 +4,9 @@
 
 #include "GameFramework/PlayerController.h"
 #include "NomadsEndTypes.h"
-#include "Building.h"
 #include "SpectatorPlayerController.generated.h"
+
+class ABuilding;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FConstructBuildingDelegate, ABuilding*, building);
 

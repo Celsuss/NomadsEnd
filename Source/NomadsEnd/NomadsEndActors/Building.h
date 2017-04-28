@@ -3,14 +3,14 @@
 #pragma once
 
 #include "GameFramework/Actor.h"
-#include "FResourceStruct.h"
-#include "EResourceEnum.h"
-#include "FBuildingData.h"
+#include "DataObjects/FResourceStruct.h"
+#include "DataObjects/EResourceEnum.h"
+#include "DataObjects/FBuildingData.h"
 #include "Building.generated.h"
 
 
 UCLASS(abstract)
-class NOMADSEND_API ABuilding : public AActor
+class NOMADSEND_API ABuilding : public ANomadsEndBaseActor
 {
 	GENERATED_BODY()
 
@@ -27,9 +27,9 @@ class NOMADSEND_API ABuilding : public AActor
 	
 public:	
 	// Sets default values for this actor's properties
-	ABuilding(const FObjectInitializer& ObjectInitializer);
+	ABuilding();
 
-	virtual void Init(FBuildingData* data);
+	virtual void Init(FDataStructBase* data) override;
 
 protected:
 	// Called when the game starts or when spawned

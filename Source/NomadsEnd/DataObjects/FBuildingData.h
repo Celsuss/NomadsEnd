@@ -2,12 +2,12 @@
 
 #pragma once
 
-#include "FDtoBase.h"
 #include "FResourceStruct.h"
+#include "FDataStructBase.h"
 #include "FBuildingData.generated.h"
 
 USTRUCT(BlueprintType)
-struct NOMADSEND_API FBuildingData
+struct NOMADSEND_API FBuildingData : public FDataStructBase
 {
 	GENERATED_USTRUCT_BODY()
 

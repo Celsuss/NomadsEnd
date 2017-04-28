@@ -13,6 +13,11 @@ bool AProductionBuilding::ConsumeResource_Implementation(EResourceEnum resourceE
 	return true;
 }
 
+void AProductionBuilding::Init(FDataStructBase* data)
+{
+	auto buildingData = (FBuildingData*)data;
+}
+
 //AProductionBuilding::AProductionBuilding(const FObjectInitializer& ObjectInitializer)
 //	: Super(ObjectInitializer)
 //{
@@ -24,10 +29,10 @@ void AProductionBuilding::BeginPlay()
 	Super::BeginPlay();
 }
 
-void AProductionBuilding::Init(FBuildingData* data)
-{
-
-}
+//void AProductionBuilding::Init(FBuildingData* data)
+//{
+//
+//}
 
 //ProductionBuilding::~ProductionBuilding()
 //{

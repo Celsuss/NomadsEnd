@@ -26,7 +26,7 @@ public:
 	//UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Building")
 	//bool ProduceResource(EResourceEnum resourceEnum, int count);
 	
-	virtual void Init(FBuildingData* data) override;
+	virtual void Init(FDataStructBase* data) override;
 protected:
 	virtual void BeginPlay() override;
 	

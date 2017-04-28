@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "FResourceStruct.h"
+#include "DataObjects/FResourceStruct.h"
 #include "UResourceManager.generated.h"
 
 UCLASS(Blueprintable)

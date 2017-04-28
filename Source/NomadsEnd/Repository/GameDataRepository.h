@@ -3,10 +3,10 @@
 #pragma once
 
 /**
-*  Use this class to get all entity data
+*  Use this class to Load and Save all entity data
 */
 
-#include "FStorageDataStruct.h"
+#include "DataObjects/FStorageDataStruct.h"
 #include "GameDataRepository.generated.h"
 
 UCLASS(abstract)

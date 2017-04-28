@@ -14,5 +14,15 @@ public:
 	ANomadsEndBaseActor();
 	virtual ~ANomadsEndBaseActor();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BaseActor")
+	UStaticMeshComponent* MeshComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "BaseActor")
+	USceneComponent* SceneRootComponent;
+
+private:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Touch, meta = (AllowPrivateAccess = "true"))
+	UBoxComponent* TriggerBox;
+
 	virtual void Init(FDataStructBase* data);
 };

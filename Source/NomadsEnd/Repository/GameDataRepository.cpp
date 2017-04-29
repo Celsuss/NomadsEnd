@@ -8,8 +8,8 @@
 
 UGameDataRepository::UGameDataRepository()
 {
-	_saveDir = FString("C:/Users/Tomas/Documents/Unreal Projects/NomadsEnd/Source");
-	_fileName = FString("JsonData.json");
+	_saveDir = FPaths::ConvertRelativePathToFull(FPaths::GameDir()+"/Source/");
+	_fileName = FString("TestJson.json");
 }
 
 UGameDataRepository::~UGameDataRepository()

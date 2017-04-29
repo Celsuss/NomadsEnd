@@ -52,8 +52,8 @@ FReply SBuildMenuUI::ConstructBuilding()
 		{
 			ASpectatorPlayerController* controller = Cast<ASpectatorPlayerController>(StandardHUD->GetWorld()->GetFirstPlayerController());
 			if (controller) {
-				ABuilding* build = new ABuilding();
-				controller->SetBuildingToConstruct(build);
+				const uint64_t id = 1;
+				controller->SetBuildingToConstruct(id);
 			}
 			else
 				GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow, TEXT("No controller"));

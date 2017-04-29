@@ -2,6 +2,8 @@
 
 #include "NomadsEnd.h"
 #include "NomadsEndActors/Building.h"
+#include "Factories/BuildingFactory.h"
+#include "Repository/GameDataRepository.h"
 #include "SpectatorPlayerController.h"
 
 ASpectatorPlayerController::ASpectatorPlayerController(const FObjectInitializer& ObjectInitializer)
@@ -39,7 +41,7 @@ void ASpectatorPlayerController::OnLeftMousePressed()
 
 void ASpectatorPlayerController::OnRightMousePressed()
 {
-	m_BuildingToConstruct = nullptr;
+	m_BuildingToConstructId = 0;
 	m_CurrentAction = EControllerActionType::Selecting;
 }
 
@@ -53,18 +55,25 @@ AActor* ASpectatorPlayerController::GetTarget(const FVector2D& screenPoint) cons
 	return nullptr;
 }
 
-void ASpectatorPlayerController::SetBuildingToConstruct(ABuilding* building)
+void ASpectatorPlayerController::SetBuildingToConstruct(const uint64_t id)
 {
 	m_CurrentAction = EControllerActionType::Building;
-	m_BuildingToConstruct = building;
+	m_BuildingToConstructId = id;
 }
 
 void ASpectatorPlayerController::ConstructBuilding(const FVector& pos)
 {
+	if (m_CurrentAction != EControllerActionType::Building || m_BuildingToConstructId <= 0) return;
 	UE_LOG(LogTemp, Warning, TEXT("Build"));
-	//if (m_CurrentAction != EControllerActionType::Building || !m_BuildingToConstruct) return;
 
-	m_BuildingToConstruct = nullptr;
+	UGameDataRepository* repository = NewObject<UGameDataRepository>();
+
+	BuildingFactory* factory = new BuildingFactory(GetWorld(), repository->LoadData());
+	FTransform t;
+	t.SetLocation(pos);
+	factory->CreateProductionBuilding(m_BuildingToConstructId, t);
+	
+
+	m_BuildingToConstructId = 0;
 	m_CurrentAction = EControllerActionType::Selecting;
-	// TODO: Call Factory to create building
 }

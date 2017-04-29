@@ -21,13 +21,13 @@ class NOMADSEND_API ASpectatorPlayerController : public APlayerController
 	void OnRightMousePressed();
 	AActor* GetTarget(const FVector2D& screenPoint) const;
 
-	void SetBuildingToConstruct(ABuilding* building);
+	void SetBuildingToConstruct(const uint64_t id);
 	
 private:
 	void ConstructBuilding(const FVector& pos);
 
 	EControllerActionType m_CurrentAction;
-	ABuilding* m_BuildingToConstruct;
+	uint64_t m_BuildingToConstructId;
 
 public:
 

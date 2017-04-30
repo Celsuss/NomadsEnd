@@ -3,6 +3,7 @@
 #pragma once
 
 #include "GameFramework/GameStateBase.h"
+
 #include "PlayingGameState.generated.h"
 
 /**
@@ -15,5 +16,11 @@ class NOMADSEND_API APlayingGameState : public AGameStateBase
 
 public:
 	/** World bounds for mini map & camera movement. */
+
+	
+
+
+
+
 	FBox WorldBounds;
 };

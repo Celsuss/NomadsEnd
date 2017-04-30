@@ -10,6 +10,10 @@ UCLASS(abstract)
 class NOMADSEND_API ANomadsEndBaseActor : public AActor
 {
 	GENERATED_BODY()
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Touch, meta = (AllowPrivateAccess = "true"))
+	UBoxComponent* TriggerBox;
+
 public:
 	ANomadsEndBaseActor();
 	virtual ~ANomadsEndBaseActor();
@@ -19,10 +23,4 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "BaseActor")
 	USceneComponent* SceneRootComponent;
-
-private:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Touch, meta = (AllowPrivateAccess = "true"))
-	UBoxComponent* TriggerBox;
-
-	virtual void Init(FDataStructBase* data);
 };

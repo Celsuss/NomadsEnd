@@ -1,7 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "NomadsEnd.h"
+#include "NomadsEndBaseActor.h"
 #include "Building.h"
+
 
 
 // Sets default values
@@ -30,7 +32,12 @@ void ABuilding::Tick(float DeltaTime)
 
 }
 
-void ABuilding::Init(FDataStructBase* data)
+void ABuilding::Init(FBuildingData* data)
 {
-	_data = (FBuildingData*)data;
+	_data = data;
+
+	if (_data != nullptr)
+	{
+		MeshComponent->SetStaticMesh(LoadObject<UStaticMesh>(NULL, *(_data->StaticMeshPath), NULL, LOAD_None, NULL));
+	}
 }

@@ -15,7 +15,7 @@ public:
 	//virtual bool ProduceResource_Implementation(EResourceEnum resourceEnum, int count) override;
 	//virtual bool ConsumeResource_Implementation(EResourceEnum resourceEnum, int count) override;
 
-	virtual void Init(FDataStructBase* data) override;
+	virtual void Init(FBuildingData* data) override;
 protected:
 	virtual void BeginPlay() override;
 

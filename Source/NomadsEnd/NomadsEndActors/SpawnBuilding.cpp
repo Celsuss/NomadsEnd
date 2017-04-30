@@ -16,7 +16,7 @@ void ASpawnBuilding::BeginPlay()
 	Super::BeginPlay();
 }
 
-void ASpawnBuilding::Init(FDataStructBase* data)
+void ASpawnBuilding::Init(FBuildingData* data)
 {
 
 }

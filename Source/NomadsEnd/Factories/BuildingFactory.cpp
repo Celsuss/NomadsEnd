@@ -8,24 +8,21 @@
 #include "NomadsEndActors/Building.h"
 
 
-BuildingFactory::BuildingFactory(UWorld* world, FStorageDataStruct* data) : FactoryBase(world, data)
+BuildingFactory::BuildingFactory(UWorld* world, const FStorageDataStruct& data) : FactoryBase(world, data)
 {
-	
 }
 
-BuildingFactory::~BuildingFactory() {
-
+BuildingFactory::~BuildingFactory() 
+{
 }
 
 FDataStructBase* BuildingFactory::GetActorInitializationData(uint64_t id)
 {
-	auto buildingData = (FStorageDataStruct*)_data;
-
-	for (int i = 0; i < buildingData->Buildings.Num(); i++)
+	for (int i = 0; i < _data->Buildings.Num(); i++)
 	{
-		if (buildingData->Buildings[i]->Id == id)
+		if (_data->Buildings[i].Id == id)
 		{
-			return buildingData->Buildings[i];
+			return (FDataStructBase*)&(_data->Buildings[i]);
 		}
 	}
 
@@ -37,8 +34,8 @@ FDataStructBase* BuildingFactory::GetActorInitializationData(uint64_t id)
 AProductionBuilding* BuildingFactory::CreateProductionBuilding(uint64_t id, FTransform location) 
 {
 	auto newBuilding = Cast<AProductionBuilding>(UGameplayStatics::BeginDeferredActorSpawnFromClass(_world, AProductionBuilding::StaticClass(), location));
-	auto data = GetActorInitializationData(id);
+	auto data = (FBuildingData*)GetActorInitializationData(id);
 	newBuilding->Init(data);
 
-	return (AProductionBuilding*)UGameplayStatics::FinishSpawningActor(newBuilding, location);
+	return Cast<AProductionBuilding>(UGameplayStatics::FinishSpawningActor(newBuilding, location));
 }

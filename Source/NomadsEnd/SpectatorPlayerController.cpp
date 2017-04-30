@@ -6,6 +6,7 @@
 #include "Repository/GameDataRepository.h"
 #include "SpectatorPlayerController.h"
 
+
 ASpectatorPlayerController::ASpectatorPlayerController(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
@@ -66,9 +67,7 @@ void ASpectatorPlayerController::ConstructBuilding(const FVector& pos)
 	if (m_CurrentAction != EControllerActionType::Building || m_BuildingToConstructId <= 0) return;
 	UE_LOG(LogTemp, Warning, TEXT("Build"));
 
-	UGameDataRepository* repository = NewObject<UGameDataRepository>();
-
-	BuildingFactory* factory = new BuildingFactory(GetWorld(), repository->LoadData());
+	BuildingFactory* factory = new BuildingFactory(GetWorld(), *_repository->GetData());
 	FTransform t;
 	t.SetLocation(pos);
 	factory->CreateProductionBuilding(m_BuildingToConstructId, t);
@@ -76,4 +75,9 @@ void ASpectatorPlayerController::ConstructBuilding(const FVector& pos)
 
 	m_BuildingToConstructId = 0;
 	m_CurrentAction = EControllerActionType::Selecting;
+}
+
+void ASpectatorPlayerController::InjectRepository(const UGameDataRepository& repository)
+{
+	_repository = &repository;
 }

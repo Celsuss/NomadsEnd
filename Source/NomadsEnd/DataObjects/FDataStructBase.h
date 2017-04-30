@@ -10,5 +10,17 @@ struct NOMADSEND_API FDataStructBase
 public:
 	GENERATED_USTRUCT_BODY()
 
+	UPROPERTY(VisibleAnywhere)
+	int Id;
+
+	UPROPERTY(VisibleAnywhere)
+	FName Name;
+
+	FDataStructBase();
 	virtual ~FDataStructBase();
+
+	bool FDataStructBase::operator==(const FDataStructBase &other) const
+	{
+		return Id == other.Id;
+	};
 };

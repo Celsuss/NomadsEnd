@@ -13,9 +13,10 @@ bool AProductionBuilding::ConsumeResource_Implementation(EResourceEnum resourceE
 	return true;
 }
 
-void AProductionBuilding::Init(FDataStructBase* data)
+void AProductionBuilding::Init(FBuildingData* data)
 {
-	auto buildingData = (FBuildingData*)data;
+	Super::Init(data);
+
 
 
 }

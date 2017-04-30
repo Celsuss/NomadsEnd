@@ -11,7 +11,7 @@ struct FStorageDataStruct;
 class NOMADSEND_API BuildingFactory : public FactoryBase
 {
 public:
-	BuildingFactory(UWorld* world, FStorageDataStruct* data);
+	BuildingFactory(UWorld* world, const FStorageDataStruct& data);
 
 	~BuildingFactory();
 

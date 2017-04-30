@@ -1,7 +1,7 @@
 {
 	"buildings": [
 		{
-			"id": "1",
+			"id": 1,
 			"name": "ByggarData",
 			"costToBuild": [
 				{
@@ -13,22 +13,8 @@
 					"resourceType": "RE_Fish"
 				}
 			],
-			"timeToBuild": 1
-		},
-		{
-			"id": "2",
-			"name": "ByggarData2",
-			"costToBuild": [
-				{
-					"count": 10,
-					"resourceType": "RE_Stone"
-				},
-				{
-					"count": 100,
-					"resourceType": "RE_Wood"
-				}
-			],
-			"timeToBuild": 15
+			"timeToBuild": 1,
+			"staticMeshPath": "/Game/Meshes/NomadsEndModels.NomadsEndModels"
 		}
 	]
 }

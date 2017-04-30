@@ -11,23 +11,15 @@ struct NOMADSEND_API FBuildingData : public FDataStructBase
 {
 	GENERATED_USTRUCT_BODY()
 
-	UPROPERTY(VisibleAnywhere)
-	int Id;
-
-	UPROPERTY(VisibleAnywhere)
-	FName Name;
-
 	UPROPERTY(EditAnywhere)
 	TArray<FResourceStruct> CostToBuild;
 
 	UPROPERTY(EditAnywhere)
 	float TimeToBuild;
 
+	UPROPERTY(EditAnywhere)
+	FString StaticMeshPath;
+
 	FBuildingData();
 	~FBuildingData();
-
-	bool FBuildingData::operator==(const FBuildingData &other) const
-	{
-		return Id == other.Id;
-	};
 };

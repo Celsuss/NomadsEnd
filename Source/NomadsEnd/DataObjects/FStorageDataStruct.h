@@ -6,12 +6,12 @@
 #include "FStorageDataStruct.generated.h"
 
 USTRUCT(BlueprintType)
-struct NOMADSEND_API FStorageDataStruct : public FDataStructBase
+struct NOMADSEND_API FStorageDataStruct
 {
 	GENERATED_USTRUCT_BODY()
 
-	//UPROPERTY(VisibleAnywhere, Category = "Data")
-	TArray<FBuildingData*> Buildings;
+	UPROPERTY(VisibleAnywhere, Category = "Data")
+	TArray<FBuildingData> Buildings;
 
 public:
 	FStorageDataStruct();

@@ -18,12 +18,18 @@ class NOMADSEND_API UGameDataRepository : public UObject
 
 	FString _saveDir;
 	FString _fileName;
-	bool _allowOverwriting = false;
+	bool _allowOverwriting = true;
+
+	FStorageDataStruct _data;
+
+	virtual bool LoadData();
 
 public:
 	UGameDataRepository();
 	virtual ~UGameDataRepository();
 
-	virtual FStorageDataStruct* LoadData();
+	
 	virtual bool SaveData(const FStorageDataStruct &inStruct);
+
+	virtual const FStorageDataStruct* GetData() const;
 };

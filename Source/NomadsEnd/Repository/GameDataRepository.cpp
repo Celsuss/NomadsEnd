@@ -8,12 +8,20 @@
 
 UGameDataRepository::UGameDataRepository()
 {
-	_saveDir = FPaths::ConvertRelativePathToFull(FPaths::GameDir()+"/Source/");
+	_saveDir = FPaths::ConvertRelativePathToFull(FPaths::GameDir()+"Source");
 	_fileName = FString("TestJson.json");
+	
+	bool success = LoadData();
+
+	if (!success)
+	{
+		UE_LOG(NomadsEndLog, Warning, TEXT("Repository failed to load data"))
+	}
 }
 
 UGameDataRepository::~UGameDataRepository()
 {
+	//delete _data;
 }
 
 bool UGameDataRepository::SaveData(const FStorageDataStruct &inStruct)
@@ -47,7 +55,7 @@ bool UGameDataRepository::WriteToDisk(FString jsonString)
 	return result;
 }
 
-FStorageDataStruct* UGameDataRepository::LoadData() {
+bool UGameDataRepository::LoadData() {
 	
 	TSharedPtr<FJsonObject> jsonObject;
 	FString inputString;
@@ -61,13 +69,9 @@ FStorageDataStruct* UGameDataRepository::LoadData() {
 
 	FJsonSerializer::Deserialize(reader, jsonObject);
 
-	FStorageDataStruct* dataStructOut = new FStorageDataStruct();
-	bool result = FJsonObjectConverter::JsonObjectToUStruct(jsonObject.ToSharedRef(), dataStructOut, 0, 0);
+	return FJsonObjectConverter::JsonObjectToUStruct(jsonObject.ToSharedRef(), &_data, 0, 0);
+}
 
-	if (result)
-	{
-		return dataStructOut;
-	}
-	
-	return 0;
+const FStorageDataStruct* UGameDataRepository::GetData() const {
+	return &_data;
 }

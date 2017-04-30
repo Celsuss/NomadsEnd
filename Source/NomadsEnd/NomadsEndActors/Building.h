@@ -8,6 +8,8 @@
 #include "DataObjects/FBuildingData.h"
 #include "Building.generated.h"
 
+class ANomadsEndBaseActor;
+
 
 UCLASS(abstract)
 class NOMADSEND_API ABuilding : public ANomadsEndBaseActor
@@ -30,11 +32,11 @@ public:
 	// Sets default values for this actor's properties
 	ABuilding();
 
-	virtual void Init(FDataStructBase* data) override;
+	virtual void Init(FBuildingData* data);
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	//virtual void SetData(const FDataStructBase& data);
 	
 };

@@ -30,6 +30,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "AI")
 	class UBehaviorTree* BehaviorTree;
 
+	UPROPERTY(EditAnywhere, Category = "AI")
+	class UTextRenderComponent* TextRender;
+
 	/* The bot behavior we want this bot to execute, (passive/patrol) by specifying EditAnywhere we can edit this value per-instance when placed on the map. */
 	UPROPERTY(EditAnywhere, Category = "AI")
 	EBotBehaviorType BotType;

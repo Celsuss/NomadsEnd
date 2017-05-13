@@ -6,6 +6,7 @@
 #include "DataObjects/FResourceStruct.h"
 #include "DataObjects/EResourceEnum.h"
 #include "DataObjects/FBuildingData.h"
+#include "NomadsEndActors/NomadsEndBaseActor.h"
 #include "Building.generated.h"
 
 class ANomadsEndBaseActor;

@@ -14,6 +14,8 @@ ASpectatorPlayerController::ASpectatorPlayerController(const FObjectInitializer&
 	bHidden = false;
 	bShowMouseCursor = true;
 	m_CurrentAction = EControllerActionType::Selecting;
+	m_DataRepository = NewObject<UGameDataRepository>();
+	m_BuildingFactory = new BuildingFactory(GetWorld(), *m_DataRepository->GetData());
 }
 
 void ASpectatorPlayerController::SetupInputComponent()
@@ -70,8 +72,9 @@ void ASpectatorPlayerController::ConstructBuilding(const FVector& pos)
 	BuildingFactory* factory = new BuildingFactory(GetWorld(), *_repository->GetData());
 	FTransform t;
 	t.SetLocation(pos);
-	factory->CreateBuilding(m_BuildingToConstructId, t);
 	
+	// TODO: Dont cast every time, set member variable m_GameState
+	Cast<APlayingGameState>(GetWorld()->GetGameState())->AddConstructionBuilding(Cast<ABuilding>(m_BuildingFactory->CreateBuilding(m_BuildingToConstructId, t)));
 
 	m_BuildingToConstructId = 0;
 	m_CurrentAction = EControllerActionType::Selecting;
@@ -80,4 +83,5 @@ void ASpectatorPlayerController::ConstructBuilding(const FVector& pos)
 void ASpectatorPlayerController::InjectRepository(const UGameDataRepository& repository)
 {
 	_repository = &repository;
+	
 }

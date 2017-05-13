@@ -7,6 +7,8 @@
 #include "SpectatorPlayerController.generated.h"
 
 class ABuilding;
+class BuildingFactory;
+class APlayingGameState;
 class UGameDataRepository;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FConstructBuildingDelegate, ABuilding*, building);
@@ -29,6 +31,8 @@ class NOMADSEND_API ASpectatorPlayerController : public APlayerController
 private:
 	void ConstructBuilding(const FVector& pos);
 
+	APlayingGameState* m_GameState;
+
 	EControllerActionType m_CurrentAction;
 	uint64_t m_BuildingToConstructId;
 
@@ -38,4 +42,7 @@ public:
 
 	UPROPERTY()
 	FConstructBuildingDelegate OnConstructBuilding;
+
+	UGameDataRepository* m_DataRepository;
+	BuildingFactory* m_BuildingFactory;
 };

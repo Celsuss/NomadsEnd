@@ -15,6 +15,9 @@ AAgentBase::AAgentBase()
 	bUseControllerRotationRoll = true;
 
 	BotType = EBotBehaviorType::Passive;
+
+	TextRender = CreateDefaultSubobject<UTextRenderComponent>(TEXT("Text Component"));
+	TextRender->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned

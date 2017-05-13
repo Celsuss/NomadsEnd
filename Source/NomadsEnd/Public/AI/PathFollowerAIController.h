@@ -6,6 +6,7 @@
 #include "PathFollowerAIController.generated.h"
 
 class APathNode;
+class ABuilding;
 class AAgentBase;
 class UBehaviorTreeComponent;
 class UBlackboardComponent;
@@ -24,6 +25,8 @@ class NOMADSEND_API APathFollowerAIController : public AAIController
 	/* Called whenever the controller possesses a character bot */
 	virtual void Possess(class APawn* InPawn) override;
 
+	void SetConstructBuilding(ABuilding* building);
+
 	AAgentBase* m_Agent;
 	EPathFollowingStatus::Type m_DesiredMoveStatus;
 
@@ -32,6 +35,8 @@ class NOMADSEND_API APathFollowerAIController : public AAIController
 
 	UPROPERTY(EditDefaultsOnly, Category = "AI")
 	FName DesiredNodeKeyName;
+	UPROPERTY(EditDefaultsOnly, Category = "AI")
+	FName ConstrucingBuildingKeyName;
 
 	UPROPERTY(EditAnywhere, Category = "AI")
 	class APathNode* DesiredNode;

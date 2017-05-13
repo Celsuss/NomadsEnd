@@ -1,9 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "NomadsEnd.h"
-#include "PathFollowerAIController.h"
-#include "AgentBase.h"
 #include "PathNode.h"
+#include "AgentBase.h"
+#include "NomadsEndActors/Building.h"
+#include "PathFollowerAIController.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/BehaviorTreeComponent.h"
@@ -17,6 +18,7 @@ APathFollowerAIController::APathFollowerAIController(const class FObjectInitiali
 
 	/* Match with the Blackboard */
 	DesiredNodeKeyName = "DesiredNode";
+	ConstrucingBuildingKeyName = "ConstrucingBuilding";
 
 	/* Initializes PlayerState so we can assign a team index to AI */
 	bWantsPlayerState = true;
@@ -55,6 +57,12 @@ void APathFollowerAIController::Possess(class APawn* InPawn)
 	}
 }
 
-void APathFollowerAIController::SetDesiredNode(APathNode* desiredNode) {
+void APathFollowerAIController::SetConstructBuilding(ABuilding* building)
+{
+	BlackboardComp->SetValueAsObject(ConstrucingBuildingKeyName, building);
+}
+
+void APathFollowerAIController::SetDesiredNode(APathNode* desiredNode)
+{
 	DesiredNode = desiredNode;
 }

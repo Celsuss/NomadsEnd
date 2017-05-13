@@ -17,5 +17,5 @@ public:
 
 	FDataStructBase* GetActorInitializationData(uint64_t id) override;
 
-	AProductionBuilding* CreateProductionBuilding(uint64_t id, FTransform location);
+	AProductionBuilding* CreateProductionBuilding(uint64_t id, const FVector& pos);
 };

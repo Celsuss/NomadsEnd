@@ -34,8 +34,10 @@ FDataStructBase* BuildingFactory::GetActorInitializationData(uint64_t id)
 
 
 
-AProductionBuilding* BuildingFactory::CreateProductionBuilding(uint64_t id, FTransform location) 
+AProductionBuilding* BuildingFactory::CreateProductionBuilding(uint64_t id, const FVector& pos)
 {
+	FTransform location;
+	location.SetLocation(pos);
 	auto newBuilding = Cast<AProductionBuilding>(UGameplayStatics::BeginDeferredActorSpawnFromClass(_world, AProductionBuilding::StaticClass(), location));
 	auto data = GetActorInitializationData(id);
 	newBuilding->Init(data);

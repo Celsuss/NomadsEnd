@@ -5,15 +5,17 @@
 #include "GameFramework/GameStateBase.h"
 #include "PlayingGameState.generated.h"
 
-/**
- * 
- */
+class ABuilding;
+
 UCLASS()
 class NOMADSEND_API APlayingGameState : public AGameStateBase
 {
 	GENERATED_BODY()
 
 public:
-	/** World bounds for mini map & camera movement. */
+	void AddConstructionBuilding(ABuilding* building);
+	ABuilding* GetConstructionBuilding();
+
 	FBox WorldBounds;
+	TArray<ABuilding*> ConstructionArray;
 };
